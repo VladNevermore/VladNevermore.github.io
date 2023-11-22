@@ -1,75 +1,174 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Кальянная "Ваше Название"</title>
+    <title>Кальянная</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f0f0f0;
         }
 
         header {
-            background-color: #333;
-            color: #fff;
             text-align: center;
-            padding: 1em;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+            background-color: #444;
         }
 
         section {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            padding: 2em;
-        }
-
-        .feature {
-            flex: 1;
-            margin: 1em;
-            padding: 1em;
+            padding: 20px;
             background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            border-radius: 8px;
         }
 
-        footer {
-            background-color: #333;
-            color: #fff;
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+            transform: scale(1.1);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .employee-card {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
             text-align: center;
-            padding: 1em;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
         }
     </style>
 </head>
 <body>
-
     <header>
-        <h1>Добро пожаловать в кальянную "Ваше Название"</h1>
-        <p>Лучшее место для отдыха и кальяна</p>
+        <h1>Добро пожаловать в кальянную</h1>
+        <img src="welcome_image.jpg" alt="Кальянная">
     </header>
 
-    <section>
-        <div class="feature">
-            <h2>Уютная атмосфера</h2>
-            <p>Наши уютные залы создадут неповторимую атмосферу для вашего отдыха.</p>
-        </div>
+    <nav>
+        <button onclick="showInfo()">Общая информация</button>
+        <button onclick="showEmployees()">Сотрудники</button>
+        <button onclick="showPromotions()">Акции</button>
+        <button onclick="showMenu()">Меню</button>
+        <button onclick="showReservation()">Бронирование</button>
+    </nav>
 
-        <div class="feature">
-            <h2>Широкий выбор табаков</h2>
-            <p>Мы предлагаем огромный выбор табаков различных вкусов для настоящих ценителей.</p>
-        </div>
-
-        <div class="feature">
-            <h2>Профессиональные кальянщики</h2>
-            <p>Наши опытные кальянщики обеспечат вам идеальное курение кальяна.</p>
-        </div>
+    <section id="infoSection" style="display: none;">
+        <h2>Общая информация</h2>
+        <p>Краткая информация о кальянной...</p>
+        <img src="calyx_images.jpg" alt="Кальянная">
+        <p>Время работы: Пн-Вс 12:00 - 23:00</p>
+        <!-- Добавьте карту с геолокацией -->
+        <p>Адрес: ул. Улица, дом 123</p>
     </section>
 
-    <footer>
-        <p>&copy; 2023 Кальянная "Ваше Название". Все права защищены.</p>
-    </footer>
+    <section id="employeesSection" style="display: none;">
+        <h2>Сотрудники</h2>
+        <!-- Добавьте карточки сотрудников -->
+        <div class="employee-card">
+            <img src="employee1.jpg" alt="Сотрудник 1">
+            <p>Должность: ...</p>
+            <p>Цитата: ...</p>
+        </div>
+        <!-- Добавьте другие карточки по аналогии -->
+    </section>
 
+    <section id="promotionsSection" style="display: none;">
+        <h2>Акции</h2>
+        <img src="promotion_image.jpg" alt="Акция">
+        <p>Текст акции...</p>
+    </section>
+
+    <section id="menuSection" style="display: none;">
+        <h2>Меню</h2>
+        <!-- Добавьте блоки с вкусами кальяна -->
+        <div>
+            <img src="flavor1.jpg" alt="Вкус 1">
+            <p>Название: ...</p>
+            <p>Цена: ...</p>
+        </div>
+        <!-- Добавьте другие блоки по аналогии -->
+    </section>
+
+    <section id="reservationSection" style="display: none;">
+        <h2>Бронирование</h2>
+        <form>
+            <label for="date">Дата:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Время:</label>
+            <input type="time" id="time" name="time" required>
+
+            <label for="comment">Комментарий:</label>
+            <textarea id="comment" name="comment" rows="4"></textarea>
+
+            <button type="submit">Забронировать</button>
+        </form>
+    </section>
+
+    <script>
+        function showInfo() {
+            hideAllSections();
+            document.getElementById("infoSection").style.display = "block";
+        }
+
+        function showEmployees() {
+            hideAllSections();
+            document.getElementById("employeesSection").style.display = "block";
+        }
+
+        function showPromotions() {
+            hideAllSections();
+            document.getElementById("promotionsSection").style.display = "block";
+        }
+
+        function showMenu() {
+            hideAllSections();
+            document.getElementById("menuSection").style.display = "block";
+        }
+
+        function showReservation() {
+            hideAllSections();
+            document.getElementById("reservationSection").style.display = "block";
+        }
+
+        function hideAllSections() {
+            document.getElementById("infoSection").style.display = "none";
+            document.getElementById("employeesSection").style.display = "none";
+            document.getElementById("promotionsSection").style.display = "none";
+            document.getElementById("menuSection").style.display = "none";
+            document.getElementById("reservationSection").style.display = "none";
+        }
+    </script>
 </body>
 </html>
